@@ -1,0 +1,22 @@
+.menu {
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    a {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        color: rgb(139, 139, 139);
+        p {
+            margin: 0;
+            font-size: 0.825rem;
+        }
+        &:focus {
+            color: dodgerblue;
+            text-decoration: none;
+        }
+    }
+}

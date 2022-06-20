@@ -24,7 +24,12 @@
 }
 
 .menu a:focus {
-  color: #FFFFFF;
+  color: #515558;
   text-decoration: none;
+}
+
+.menu-button--active {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
 }
 /*# sourceMappingURL=Mobile.css.map */

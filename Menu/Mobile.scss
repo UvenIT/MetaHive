@@ -16,8 +16,12 @@
             font-size: 0.825rem;
         }
         &:focus {
-            color: #FFFFFF;
+            color: #515558;
             text-decoration: none;
         }
+    }
+    &-button--active{
+        color: #FFFFFF !important;
+        text-decoration: none !important;
     }
 }

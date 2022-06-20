@@ -6,7 +6,6 @@
     <title>MetaHive</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -16,18 +15,59 @@
 </head>
 <body>
     <nav>
-        <h4>Chats</h4>
+        <h4 class="nav-text">Chats</h4>
         <i class="fa-solid fa-pen-to-square fa-lg"></i>
     </nav>
     <div class="menu">
-        <a href="#"><i class="fa-solid fa-message"></i><p>Chats</p></a>
-        <a href="#"><i class="fa-solid fa-users"></i><p>Users</p></a>
-        <a href="#"><i class="fa-solid fa-arrow-trend-up"></i><p>Stock</p></a>  
+        <a href="#" class="chatsbutton menu-button--active"><i class="fa-solid fa-message"></i><p>Chats</p></a>
+        <a href="#" class="usersbutton"><i class="fa-solid fa-users"></i><p>Users</p></a>
+        <a href="#" class="stockbutton"><i class="fa-solid fa-arrow-trend-up"></i><p>Stock</p></a>  
     </div>
     <div class="maincolumn">
+        <div class="maincolumn-chats">
+            <div class="maincolumn-chats--input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="">
+            </div>
+            <div class="maincolumn-chats--messages">
+                <img src="/Avatars/1.svg" alt="">
+                <div class="details">
+                    <div>
+                        <span class="status"></span>
+                        <h5>Richard Hamilton</h5>
+                    </div>
+                    <p>Last message</p>
+                </div>
+            </div>
+            <div class="maincolumn-chats--messages">
+                <img src="/Avatars/2.svg" alt="">
+                <div class="details">
+                    <div>
+                        <span class="status"></span>
+                        <h5>Richard Hamilton</h5>
+                    </div>
+                    <p>Last message</p>
+                </div>
+            </div>
+        </div>
+        <div class="maincolumn-users d-none">
+            <div class="maincolumn-users--box">
+                <img src="/Avatars/1.svg" alt="">
+                <h5>Richard Hamilton</h5>
+            </div>
+            <div class="line"></div>
+            <div class="maincolumn-users--box">
+                <img src="/Avatars/2.svg" alt="">
+                <h5>Richard Hamilton</h5>
+            </div>
+        </div>
+        <div class="maincolumn-stock d-none">
+            stock
+        </div>
     </div>
     <div class="extmaincontent">
 
     </div>
+    <script src='main.js'></script>
 </body>
 </html>

@@ -7,9 +7,28 @@
 }
 
 @media screen and (max-width: 768px) {
+  nav {
+    width: 100%;
+    padding: 1.5rem;
+    background: #0d0d0f;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #515558;
+  }
+  nav h4 {
+    margin: 0;
+    color: white;
+  }
   .menu {
     width: 100%;
-    background: black;
+    background: #0d0d0f;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -22,14 +41,15 @@
     width: 100%;
     text-align: center;
     padding: 0.5rem;
-    color: #8b8b8b;
+    color: #515558;
+    text-decoration: none;
   }
   .menu a p {
     margin: 0;
     font-size: 0.825rem;
   }
   .menu a:focus {
-    color: dodgerblue;
+    color: #FFFFFF;
     text-decoration: none;
   }
 }

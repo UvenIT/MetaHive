@@ -1,6 +1,6 @@
 .menu {
   width: 100%;
-  background: black;
+  background: #0d0d0f;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,7 +14,8 @@
   width: 100%;
   text-align: center;
   padding: 0.5rem;
-  color: #8b8b8b;
+  color: #515558;
+  text-decoration: none;
 }
 
 .menu a p {
@@ -23,7 +24,7 @@
 }
 
 .menu a:focus {
-  color: dodgerblue;
+  color: #FFFFFF;
   text-decoration: none;
 }
 /*# sourceMappingURL=Mobile.css.map */

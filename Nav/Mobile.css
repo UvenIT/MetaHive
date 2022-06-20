@@ -1,0 +1,21 @@
+nav {
+  width: 100%;
+  padding: 1.5rem;
+  background: #0d0d0f;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #515558;
+}
+
+nav h4 {
+  margin: 0;
+  color: white;
+}
+/*# sourceMappingURL=Mobile.css.map */

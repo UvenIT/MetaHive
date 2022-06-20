@@ -1,6 +1,6 @@
 .menu {
     width: 100%;
-    background: black;
+    background: #0d0d0f;
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -9,14 +9,14 @@
         width: 100%;
         text-align: center;
         padding: 0.5rem;
-        color: rgb(139, 139, 139);
+        color: #515558;
         text-decoration: none;
         p {
             margin: 0;
             font-size: 0.825rem;
         }
         &:focus {
-            color: dodgerblue;
+            color: #FFFFFF;
             text-decoration: none;
         }
     }

@@ -122,4 +122,130 @@
   width: 100%;
   background: #1f2122;
 }
+
+.maincolumn-stock {
+  padding: 1rem 1.5rem;
+}
+
+.maincolumn-stock--input {
+  background: #151718;
+  border-radius: 0.75rem;
+  width: 100%;
+  padding: 0 0.5rem;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.maincolumn-stock--input input {
+  background: transparent;
+  height: 42px;
+  border: none;
+  color: #FFFFFF;
+}
+
+.maincolumn-stock--input input:focus {
+  outline: none;
+}
+
+.maincolumn-stock--box {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 3fr 2fr;
+      grid-template-columns: 2fr 3fr 2fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.maincolumn-stock--box div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.maincolumn-stock--box div img {
+  height: 32px;
+}
+
+.maincolumn-stock--box div p {
+  margin-left: 0.25rem;
+}
+
+.maincolumn-stock--box h5, .maincolumn-stock--box p {
+  margin: 0;
+}
+
+.maincolumn-stock--box .change-price {
+  text-align: end;
+}
+
+.maincolumn-stock--box:hover {
+  background: #151718;
+}
+
+.maincolumn-stock-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.maincolumn-stock-pagination h5 {
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.maincolumn-stock-pagination i:last-of-type {
+  color: #FFFFFF;
+}
+
+.maincolumn-stock .maincolumn-stock-cryptodetails {
+  color: #FFFFFF;
+}
+
+.maincolumn-stock .maincolumn-stock-cryptodetails i {
+  margin-bottom: 2rem;
+}
+
+.maincolumn-stock .maincolumn-stock-cryptodetails .stock-chart {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.maincolumn-stock .maincolumn-stock-cryptodetails .stock-chart--details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.maincolumn-stock .maincolumn-stock-cryptodetails .stock-chart--details div {
+  width: 49%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #1f2122;
+  margin-bottom: 0.5rem;
+}
 /*# sourceMappingURL=Mobile.css.map */

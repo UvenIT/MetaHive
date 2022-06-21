@@ -87,4 +87,94 @@
             background: #1f2122;
         }
     }
+    &-stock{
+        padding: 1rem 1.5rem;
+        &--input{
+            background: #151718;
+            border-radius: 0.75rem;
+            width: 100%;
+            padding: 0 0.5rem;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+            input{
+                background: transparent;
+                height: 42px;
+                border: none;
+                color: #FFFFFF;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        &--box{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+            align-items: center;
+            padding: 0.5rem;
+            color: #FFFFFF;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            div{
+                display: flex;
+                align-items: center;
+                img{
+                    height: 32px;
+                }
+                p{
+                    margin-left: 0.25rem;
+                }
+            }
+            h5, p{
+                margin: 0;
+            }
+            .change-price{
+                text-align: end;
+            }
+            &:hover{
+                background: #151718;
+            }
+        }
+        &-pagination{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            h5{
+                margin: 0;
+                color: #FFFFFF;
+            }
+            i:last-of-type{
+                color: #FFFFFF;
+            }
+        }
+        .maincolumn-stock-cryptodetails{
+            color:#FFFFFF;
+            i{
+                margin-bottom: 2rem;
+            }
+            h1{
+
+            }
+            .stock-chart{
+                padding: 1rem;
+                border-radius: 1rem;
+                background: white;
+                margin-bottom: 1rem;
+            }
+            .stock-chart--details{
+                display: flex;
+                justify-content: space-between;
+                align-content: space-between;
+                flex-wrap: wrap;
+                div{
+                    width: 49%;
+                    padding: 1rem;
+                    border-radius: 1rem;
+                    background: #1f2122;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+    }
 }

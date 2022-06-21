@@ -194,7 +194,6 @@
     padding: 0.5rem;
     color: #FFFFFF;
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
   }
   .maincolumn-stock--box div {
     display: -webkit-box;
@@ -220,6 +219,7 @@
     background: #151718;
   }
   .maincolumn-stock-pagination {
+    margin-top: 0.25rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

@@ -35,13 +35,13 @@ buttons.forEach(element => {
     })
 });
 
-fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false')
+fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=1h')
             .then(response => response.json())
             .then(data => { 
                 for(var i = 0; i < 20; i++){
-                    var symbol = data[i]['symbol'];
+                    symbol = data[i]['symbol'];
                     var currentprice = '$' + data[i]['current_price'];
-                    var changeprice = data[i]['price_change_percentage_24h'] ;
+                    var changeprice1 = data[i]['price_change_percentage_1h_in_currency'] ;
                     id = data[i]['id'];
 
                     var srclink = '/CryptoIcons/svg/icon/' + symbol +'.svg';
@@ -54,8 +54,8 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                     pricebox[i].innerHTML = currentprice;
 
                     var changebox = document.querySelectorAll('.change-price');
-                    changebox[i].innerHTML = Math.round(changeprice * 100)/100  + '%';
-                    if(changeprice < 0){
+                    changebox[i].innerHTML = Math.round(changeprice1 * 1000)/1000  + '%';
+                    if(changeprice1 < 0){
                         changebox[i].style.color = '#e15241';
                     }
                     else{
@@ -86,6 +86,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                 });
             });
 
+
 var stockboxes = document.querySelectorAll('.maincolumn-stock--box');
 stockboxes.forEach(element => {
     element.addEventListener('click', () => {
@@ -97,12 +98,26 @@ stockboxes.forEach(element => {
                 var pricesarray = [];
                 for(i = 1; i < 25; i++){
                     var prices = info['prices'][i][1];
-                    pricesarray.push(prices);
+                    pricesarray.push(Math.round(prices*1000)/1000);
                 }
                 //Min and Max values for 24h
-                low24 = Math.min(pricesarray);
-                high24 = Math.max(pricesarray);
+                low24 = Math.round(Math.min(...pricesarray)*1000)/1000;
+                high24 = Math.round(Math.max(...pricesarray)*1000)/1000;
+                //Color chart
+                fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids='+ elementalt +'&order=market_cap_desc&page=1&sparkline=false&price_change_percentage=1h')
+                    .then(response => response.json())
+                    .then(data => { 
+                        changeprice1h = data[0]['price_change_percentage_1h_in_currency'] ;
+                        changeprice24h = data[0]['price_change_percentage_24h'] ;
+                        console.log(changeprice1h, changeprice24h);
 
+                        if(changeprice1h < 0){
+                            chartcolor = '#e15241';
+                        }
+                        else{
+                            chartcolor = '#4eaf0a';
+                        }
+                    });
                 const labels = [
                     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
                 ];
@@ -110,8 +125,8 @@ stockboxes.forEach(element => {
                     labels: labels,
                     datasets: [{
                         label: capelementalt  + ' ($)',
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: chartcolor,
+                        borderColor: chartcolor,
                         data: pricesarray,
                         tension: 0.4,
                     }]
@@ -147,7 +162,7 @@ stockboxes.forEach(element => {
             });
         var stockdetails = document.createElement('div');
         stockdetails.classList.add('maincolumn-stock-cryptodetails');
-        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>"+ capelementalt + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>1000$</p></div><div><h5>24h High</h5><p class='stock-24high'>2000$</p></div><div><h5>1h</h5><p class='stock-24h'>5.0%</p></div><div><h5>24h</h5><p class='stock-24h'>0.2%</p></div></div>";
+        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h2>"+ capelementalt +"</h2><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>" + low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-1h'>"+ Math.round(changeprice1h*1000)/1000+"</p></div><div><h5>24h</h5><p class='stock-24h'>"+ Math.round(changeprice24h*1000)/1000+"</p></div></div>";
         for(i = 0; i< stockboxes.length; i++){
             stockboxes[i].classList.add('d-none');
         }
@@ -156,6 +171,25 @@ stockboxes.forEach(element => {
         stockinput.classList.add('d-none');
         pagination.classList.add('d-none');
         document.querySelector(".maincolumn-stock").appendChild(stockdetails);
+
+        var stock24h = document.querySelector('.stock-24h');
+        var stock1h = document.querySelector('.stock-1h');
+        if(stock1h.innerHTML < 0){
+            stock1h.style.color = '#e15241';
+            stock1h.innerHTML = stock1h.innerHTML + "%";
+        }
+        else{
+            stock1h.style.color = '#4eaf0a';
+            stock1h.innerHTML = stock1h.innerHTML + "%";
+        }
+        if(stock24h.innerHTML < 0){
+            stock24h.style.color = '#e15241';
+            stock24h.innerHTML = stock24h.innerHTML + "%";
+        }
+        else{
+            stock24h.style.color = '#4eaf0a';
+            stock24h.innerHTML = stock24h.innerHTML + "%";
+        }
 
         var backarrow = document.querySelector('.stock-cryptodetails--arrow');
         backarrow.addEventListener('click', () =>{

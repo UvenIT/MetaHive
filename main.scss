@@ -12,4 +12,14 @@
     @import 'Nav/Mobile';
     @import 'Menu/Mobile';
     @import 'Maincontent/Mobile';
+    @import 'ProfileInfo/Mobile';
+}
+@media screen and (min-width: 769px) and(max-width: 1200px) {
+    body{
+        height: 100vh;
+        display: flex;
+    }
+    nav{
+        display: none !important;
+    }
 }

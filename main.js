@@ -72,10 +72,6 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
             symbol.innerHTML = cryptoData.symbol;
             price.innerHTML = '$' + cryptoData.current_price;
 
-            changevalue1h = Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000;
-            changevalue24h = Math.round(cryptoData.price_change_percentage_24h *1000)/1000;
-            array1h.push(changevalue1h);
-
             change.innerHTML = Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 + '%';
             if(Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 > 0){
                 change.style.color = '#4eaf0a';
@@ -138,10 +134,9 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                         low24 = Math.round(Math.min(...pricesarray)*1000)/1000;
                         high24 = Math.round(Math.max(...pricesarray)*1000)/1000;
                         
-
                         var stockdetails = document.createElement('div');
                         stockdetails.classList.add('maincolumn-stock-cryptodetails');
-                        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>"+ capelementalt.replaceAll('-', ' ') + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>"+ low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-24h'>" + changevalue1h + "</p></div><div><h5>24h</h5><p class='stock-24h'>"+ changevalue24h+"</p></div></div>";
+                        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>"+ capelementalt.replaceAll('-', ' ') + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>"+ low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-24h'>2.0%</p></div><div><h5>24h</h5><p class='stock-24h'>5.0%</p></div></div>";
 
                         var stockinput = document.querySelector('.maincolumn-stock--input');
                         var pagination = document.querySelector('.maincolumn-stock-pagination');
@@ -214,4 +209,9 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         });
     })
 
+    var navimage = document.querySelector('.nav-image');
+    navimage.addEventListener('click', () => {
+        var profileinfo = document.querySelector('.profile-info');
+        profileinfo.classList.toggle('d-none');
+    })
 

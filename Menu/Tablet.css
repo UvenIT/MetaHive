@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=Tablet.css.map */
+.menu a:focus {
+  color: #515558;
+  text-decoration: none;
+}
+
+.menu-button--active {
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+/*# sourceMappingURL=Tablet.css.map */

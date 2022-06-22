@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAMQ,KANH,CACD,CAAC,AAKI,MAAM,CAAC;EACJ,KAAK,EAAE,OAAO;EACd,eAAe,EAAE,IAAI;CACxB;;AAEJ,AAAD,oBAAgB,CAAA;EACZ,KAAK,EAAE,kBAAkB;EACzB,eAAe,EAAE,eAAe;CACnC",
     "sources": [
         "Tablet.scss"
     ],

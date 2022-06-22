@@ -148,7 +148,9 @@
 }
 
 .maincolumn-stock .crypto-pages {
-  height: 65vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow: hidden;
   overflow-y: scroll;
 }

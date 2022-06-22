@@ -18,4 +18,10 @@ nav h4 {
   margin: 0;
   color: white;
 }
+
+nav img {
+  height: 32px;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+}
 /*# sourceMappingURL=Mobile.css.map */

@@ -29,6 +29,11 @@
     margin: 0;
     color: white;
   }
+  nav img {
+    height: 32px;
+    -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+  }
   .menu {
     width: 100%;
     background: #0d0d0f;
@@ -186,7 +191,9 @@
     outline: none;
   }
   .maincolumn-stock .crypto-pages {
-    height: 65vh;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     overflow: hidden;
     overflow-y: scroll;
   }
@@ -276,6 +283,81 @@
     border-radius: 1rem;
     background: #1f2122;
     margin-bottom: 0.5rem;
+  }
+  .profile-info {
+    position: fixed;
+    background: #0d0d0f;
+    height: 84vh;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  .profile-info-nav {
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 2rem;
+  }
+  .profile-info-nav p {
+    margin: 0;
+    margin-left: 2rem;
+  }
+  .profile-info .profile-name {
+    margin-top: 1rem;
+  }
+  .profile-info .profile-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 0 2rem;
+  }
+  .profile-info .profile-details p {
+    font-size: 0.825rem;
+    margin-bottom: 0.5rem;
+  }
+  .profile-info .profile-edit {
+    margin-top: 1rem;
+  }
+  .profile-info .profile-edit-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+  }
+  .profile-info .profile-edit-links img {
+    height: 36px;
+  }
+  .profile-info .profile-edit-links p {
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .profile-info .profile-edit-links:hover {
+    background: #151718;
+  }
+  .profile-info img {
+    height: 100px;
+    -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  body {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  nav {
+    display: none !important;
   }
 }
 /*# sourceMappingURL=main.css.map */

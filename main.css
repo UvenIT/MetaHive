@@ -185,6 +185,11 @@
   .maincolumn-stock--input input:focus {
     outline: none;
   }
+  .maincolumn-stock .crypto-pages {
+    height: 65vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
   .maincolumn-stock--box {
     width: 100%;
     display: -ms-grid;

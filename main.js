@@ -35,171 +35,183 @@ buttons.forEach(element => {
     })
 });
 
+const CryptoTemplate = document.querySelector('[crypto-card-template]');
+const CryptoContainer = document.querySelector('[crypto-cards-container]');
+const SearchInput = document.querySelector('[crypto-search]');
+
+let cryptoArray = [];
+
+SearchInput.addEventListener('input', e => {
+    const value = e.target.value.toLowerCase();
+    cryptoArray.forEach(crypto => {
+        const isVisible = crypto.name.toLowerCase().includes(value) || crypto.symbol.toLowerCase().includes(value);
+        crypto.element.classList.toggle('d-none', !isVisible);
+        var Page2 = document.querySelector('[crypto-cards-page2]');
+        Page2.classList.remove('d-none');
+        var Pagination = document.querySelector('.maincolumn-stock-pagination');
+        Pagination.classList.add('d-none');
+        if(e.target.value === ''){
+            Pagination.classList.remove('d-none');
+            Page2.classList.add('d-none');
+        }
+    })
+})
+
 fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=1h')
-            .then(response => response.json())
-            .then(data => { 
-                for(var i = 0; i < 20; i++){
-                    symbol = data[i]['symbol'];
-                    var currentprice = '$' + data[i]['current_price'];
-                    var changeprice1 = data[i]['price_change_percentage_1h_in_currency'] ;
-                    id = data[i]['id'];
+    .then(res => res.json())
+    .then(data => {
+        array1h = [];
+        cryptoArray = data.map(cryptoData =>{
+            const card = CryptoTemplate.content.cloneNode(true).children[0];
+            const alt = card.querySelector(".crypto-icon");
+            const symbol = card.querySelector(".crypto-symbol");
+            const price = card.querySelector('.stock-price');
+            const change = card.querySelector('.change-price');
+            alt.src = "CryptoIcons/svg/icon/" + cryptoData.symbol + ".svg"
+            alt.alt = cryptoData.id;
+            symbol.innerHTML = cryptoData.symbol;
+            price.innerHTML = '$' + cryptoData.current_price;
 
-                    var srclink = '/CryptoIcons/svg/icon/' + symbol +'.svg';
-                    var cryptoicon = document.querySelectorAll('.crypto-icon');
-                    cryptoicon[i].src = srclink;
-                    cryptoicon[i].alt = id;
-                    var symbolbox = document.querySelectorAll('.crypto-symbol');
-                    symbolbox[i].innerHTML = symbol;
-                    var pricebox = document.querySelectorAll('.stock-price');
-                    pricebox[i].innerHTML = currentprice;
+            changevalue1h = Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000;
+            changevalue24h = Math.round(cryptoData.price_change_percentage_24h *1000)/1000;
+            array1h.push(changevalue1h);
 
-                    var changebox = document.querySelectorAll('.change-price');
-                    changebox[i].innerHTML = Math.round(changeprice1 * 1000)/1000  + '%';
-                    if(changeprice1 < 0){
-                        changebox[i].style.color = '#e15241';
-                    }
-                    else{
-                        changebox[i].style.color = '#4eaf0a';
-                    }
-                }
-                var stockbuttons = document.querySelectorAll('.stock-arrow');
-                stockbuttons.forEach(element => {
-                    element.addEventListener('click', () => {
-                        var page1 = document.querySelector('.stock-page1');
-                        var page2 = document.querySelector('.stock-page2');
-                        var pagenumber = document.querySelector('.stock-page--number');
-                        if(element.classList.contains('fa-chevron-left')){
-                            page1.classList.remove('d-none');
-                            page2.classList.add('d-none');
-                            pagenumber.innerHTML = "1";
-                            element.style.color = '#515558';
-                            stockbuttons[1].style.color = '#FFFFFF';
-                        }
-                        else{
-                            page1.classList.add('d-none');
-                            page2.classList.remove('d-none');
-                            pagenumber.innerHTML = "2";
-                            element.style.color = '#515558';
-                            stockbuttons[0].style.color = '#FFFFFF';
-                        }
-                    })
-                });
-            });
-
-
-var stockboxes = document.querySelectorAll('.maincolumn-stock--box');
-stockboxes.forEach(element => {
-    element.addEventListener('click', () => {
-        var elementalt = element.getElementsByTagName('img')[0].alt
-        var capelementalt = elementalt.charAt(0).toUpperCase() + elementalt.slice(1);
-        fetch('https://api.coingecko.com/api/v3/coins/'+ elementalt +'/market_chart?vs_currency=usd&days=1&interval=hourly')
-            .then(response => response.json())
-            .then(info => { 
-                var pricesarray = [];
-                for(i = 1; i < 25; i++){
-                    var prices = info['prices'][i][1];
-                    pricesarray.push(Math.round(prices*1000)/1000);
-                }
-                //Min and Max values for 24h
-                low24 = Math.round(Math.min(...pricesarray)*1000)/1000;
-                high24 = Math.round(Math.max(...pricesarray)*1000)/1000;
-                //Color chart
-                fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids='+ elementalt +'&order=market_cap_desc&page=1&sparkline=false&price_change_percentage=1h')
-                    .then(response => response.json())
-                    .then(data => { 
-                        changeprice1h = data[0]['price_change_percentage_1h_in_currency'] ;
-                        changeprice24h = data[0]['price_change_percentage_24h'] ;
-                        console.log(changeprice1h, changeprice24h);
-
-                        if(changeprice1h < 0){
-                            chartcolor = '#e15241';
-                        }
-                        else{
-                            chartcolor = '#4eaf0a';
-                        }
-                    });
-                const labels = [
-                    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-                ];
-                const data = {
-                    labels: labels,
-                    datasets: [{
-                        label: capelementalt  + ' ($)',
-                        backgroundColor: chartcolor,
-                        borderColor: chartcolor,
-                        data: pricesarray,
-                        tension: 0.4,
-                    }]
-                };
-                const config = {
-                    type: 'line',
-                    data: data,
-                    options: {
-                        plugins: {
-                            legend: {
-                                display: false,
-                            }
-                        },
-                        scales: {
-                            x:{
-                                grid: {
-                                    display: false,
-                                }
-                            },
-                            y: {
-                              display: false,
-                              grid: {
-                                display: false,
-                              }
-                            }
-                        }
-                    },
-                };
-                const myChart = new Chart(
-                    document.getElementById('myChart'),
-                    config
-                );
-            });
-        var stockdetails = document.createElement('div');
-        stockdetails.classList.add('maincolumn-stock-cryptodetails');
-        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h2>"+ capelementalt +"</h2><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>" + low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-1h'>"+ Math.round(changeprice1h*1000)/1000+"</p></div><div><h5>24h</h5><p class='stock-24h'>"+ Math.round(changeprice24h*1000)/1000+"</p></div></div>";
-        for(i = 0; i< stockboxes.length; i++){
-            stockboxes[i].classList.add('d-none');
-        }
-        var stockinput = document.querySelector('.maincolumn-stock--input');
-        var pagination = document.querySelector('.maincolumn-stock-pagination');
-        stockinput.classList.add('d-none');
-        pagination.classList.add('d-none');
-        document.querySelector(".maincolumn-stock").appendChild(stockdetails);
-
-        var stock24h = document.querySelector('.stock-24h');
-        var stock1h = document.querySelector('.stock-1h');
-        if(stock1h.innerHTML < 0){
-            stock1h.style.color = '#e15241';
-            stock1h.innerHTML = stock1h.innerHTML + "%";
-        }
-        else{
-            stock1h.style.color = '#4eaf0a';
-            stock1h.innerHTML = stock1h.innerHTML + "%";
-        }
-        if(stock24h.innerHTML < 0){
-            stock24h.style.color = '#e15241';
-            stock24h.innerHTML = stock24h.innerHTML + "%";
-        }
-        else{
-            stock24h.style.color = '#4eaf0a';
-            stock24h.innerHTML = stock24h.innerHTML + "%";
-        }
-
-        var backarrow = document.querySelector('.stock-cryptodetails--arrow');
-        backarrow.addEventListener('click', () =>{
-            stockdetails.remove();
-            for(i = 0; i< stockboxes.length; i++){
-                stockboxes[i].classList.remove('d-none');
+            change.innerHTML = Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 + '%';
+            if(Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 > 0){
+                change.style.color = '#4eaf0a';
             }
-            stockinput.classList.remove('d-none');
-            pagination.classList.remove('d-none');
+            else{
+                change.style.color = '#e15241';
+            }
+            CryptoContainer.append(card);
+
+            for(i = 10; i < 20; i++){
+                CryptoContainer.childNodes[i]
+            }
+            return { name: cryptoData.name, symbol: cryptoData.symbol, element: card, Child: CryptoContainer.childNodes[i] }
         })
     })
-});
+    .then(ChildCount => {
+        var CryptoContainerChild = CryptoContainer.childElementCount;
+        CryptoBoxes = document.querySelectorAll('.maincolumn-stock--box');
+        for(i=0; i<CryptoContainerChild; i++){
+            if(i>9){
+                var Page2 = document.querySelector('[crypto-cards-page2]');
+                Page2.appendChild(CryptoBoxes[i]);
+                Page2.classList.add('d-none');
+            }
+        }
+        var stockbuttons = document.querySelectorAll('.stock-arrow');
+        stockbuttons.forEach(element => {
+            element.addEventListener('click', () => {
+                var pagenumber = document.querySelector('.stock-page--number');
+                if (element.classList.contains('fa-chevron-left')) {
+                    CryptoContainer.classList.remove('d-none');
+                    Page2.classList.add('d-none');
+                    pagenumber.innerHTML = "1";
+                    element.style.color = '#515558';
+                    stockbuttons[1].style.color = '#FFFFFF';
+                }
+                else {
+                    CryptoContainer.classList.add('d-none');
+                    Page2.classList.remove('d-none');
+                    pagenumber.innerHTML = "2";
+                    element.style.color = '#515558';
+                    stockbuttons[0].style.color = '#FFFFFF';
+                }
+            })
+        });
+        var stockboxes = document.querySelectorAll('.maincolumn-stock--box');
+        stockboxes.forEach(element => {
+            element.addEventListener('click', () => {
+                var elementalt = element.getElementsByTagName('img')[0].alt.toLowerCase();
+                var capelementalt = elementalt.charAt(0).toUpperCase() + elementalt.slice(1);
+                fetch('https://api.coingecko.com/api/v3/coins/' + elementalt + '/market_chart?vs_currency=usd&days=1&interval=hourly')
+                    .then(res => res.json())
+                    .then(info => {
+                        var pricesarray = [];
+                        for(i = 1; i < 25; i++){
+                            var prices = info['prices'][i][1];
+                            pricesarray.push(prices);
+                        }
+                        //Min and Max values for 24h
+                        low24 = Math.round(Math.min(...pricesarray)*1000)/1000;
+                        high24 = Math.round(Math.max(...pricesarray)*1000)/1000;
+                        
+
+                        var stockdetails = document.createElement('div');
+                        stockdetails.classList.add('maincolumn-stock-cryptodetails');
+                        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>"+ capelementalt.replaceAll('-', ' ') + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>"+ low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-24h'>" + changevalue1h + "</p></div><div><h5>24h</h5><p class='stock-24h'>"+ changevalue24h+"</p></div></div>";
+
+                        var stockinput = document.querySelector('.maincolumn-stock--input');
+                        var pagination = document.querySelector('.maincolumn-stock-pagination');
+                        var cryptolist = document.querySelector('.crypto-pages');
+                        stockinput.classList.add('d-none');
+                        pagination.classList.add('d-none');
+                        cryptolist.classList.add('d-none');
+                        document.querySelector(".maincolumn-stock").appendChild(stockdetails);
+                        var backarrow = document.querySelector('.stock-cryptodetails--arrow');
+                        backarrow.addEventListener('click', () =>{
+                            stockdetails.remove();
+                            cryptolist.classList.remove('d-none');
+                            stockinput.classList.remove('d-none');
+                            pagination.classList.remove('d-none');
+                        })
+
+                        const labels = [
+                            '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                        ];
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: capelementalt  + ' ($)',
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                data: pricesarray,
+                                tension: 0.4,
+                            }]
+                        };
+                        const config = {
+                            type: 'line',
+                            data: data,
+                            options: {
+                                plugins: {
+                                    legend: {
+                                        display: false,
+                                    }
+                                },
+                                scales: {
+                                    x:{
+                                        grid: {
+                                            display: false,
+                                        }
+                                    },
+                                    y: {
+                                      display: false,
+                                      grid: {
+                                        display: false,
+                                      }
+                                    }
+                                }
+                            },
+                        };
+                        const myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+                    })
+                    .then(colors => {
+                        var stock24h = document.querySelectorAll('.stock-24h');
+                        stock24h.forEach(element => {
+                            if(element.innerHTML > 0){
+                                element.style.color = "#4eaf0a";
+                            }else{
+                                element.style.color = "#e15241";
+                            }
+                        });
+                    })
+            })
+        });
+    })
+
 

@@ -106,6 +106,11 @@
                 }
             }
         }
+        .crypto-pages{
+            height: 65vh;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
         &--box{
             width: 100%;
             display: grid;

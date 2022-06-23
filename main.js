@@ -211,7 +211,19 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
 
     var navimage = document.querySelector('.nav-image');
     navimage.addEventListener('click', () => {
-        var profileinfo = document.querySelector('.profile-info');
-        profileinfo.classList.toggle('d-none');
+        var profilebox = document.querySelector('.profile-info');
+        var profilearrow = profilebox.querySelector('.fa-chevron-left');
+        var nav = document.querySelector('nav');
+        var menu = document.querySelector('.menu');
+
+        profilebox.classList.remove('d-none');
+        nav.classList.add('d-none');
+        menu.classList.add('d-none');
+
+        profilearrow.addEventListener('click', () => {
+            profilebox.classList.add('d-none');
+            nav.classList.remove('d-none');
+            menu.classList.remove('d-none');
+        })
     })
 

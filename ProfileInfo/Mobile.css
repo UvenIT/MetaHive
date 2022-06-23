@@ -1,7 +1,7 @@
 .profile-info {
   position: fixed;
   background: #0d0d0f;
-  height: 84vh;
+  height: 100vh;
   color: #FFFFFF;
   width: 100%;
   padding: 1rem 1.5rem;
@@ -16,9 +16,9 @@
   margin-bottom: 2rem;
 }
 
-.profile-info-nav p {
+.profile-info-nav h4 {
   margin: 0;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .profile-info .profile-name {
@@ -34,9 +34,19 @@
   padding: 0 2rem;
 }
 
-.profile-info .profile-details p {
+.profile-info .profile-details div {
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.profile-info .profile-details div p {
   font-size: 0.825rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+.profile-info .profile-details div:hover {
+  background: #151718;
 }
 
 .profile-info .profile-edit {
@@ -44,7 +54,7 @@
   overflow-y: scroll;
 }
 
-.profile-info .profile-edit-links {
+.profile-info .profile-edit div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,16 +65,16 @@
   border-radius: 1rem;
 }
 
-.profile-info .profile-edit-links img {
+.profile-info .profile-edit div img {
   height: 36px;
 }
 
-.profile-info .profile-edit-links p {
+.profile-info .profile-edit div p {
   margin: 0;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
-.profile-info .profile-edit-links:hover {
+.profile-info .profile-edit div:hover {
   background: #151718;
 }
 

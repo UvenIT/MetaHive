@@ -1,7 +1,7 @@
 .profile-info{
     position: fixed;
     background: #0d0d0f;
-    height: 84vh;
+    height: 100vh;
     color: #FFFFFF;
     width: 100%;
     padding: 1rem 1.5rem;
@@ -10,9 +10,9 @@
         width: 100%;
         align-items: center;
         margin-bottom: 2rem;
-        p{
+        h4{
             margin: 0;
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
     }
     .profile-name{
@@ -22,15 +22,23 @@
         display: flex;
         justify-content: space-around;
         padding: 0 2rem;
-        p{
-            font-size: 0.825rem;
-            margin-bottom: 0.5rem;
+        div{
+            width: 30%;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            p{
+                font-size: 0.825rem;
+                margin-bottom: 0;
+            }
+            &:hover{
+                background:#151718;
+            }
         }
     }
     .profile-edit{
         margin-top: 1rem;
         overflow-y: scroll;
-        &-links{
+        div{
             display: flex;
             align-items: center;
             padding: 0.5rem 1rem;
@@ -40,7 +48,7 @@
             }
             p{
                 margin: 0;
-                margin-left: 1rem;
+                margin-left: 0.5rem;
             }
             &:hover{
                 background: #151718;

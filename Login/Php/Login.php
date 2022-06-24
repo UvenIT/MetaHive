@@ -14,7 +14,7 @@
 		$login = $_POST['login'];
 		$password = $_POST['password'];
 		
-		$sql = "SELECT * FROM `users`,`socialmedia`,`followers` WHERE Email='$login' AND Password='$password'";
+		$sql = "SELECT * FROM `users`,`socialmedia`,`followers` WHERE Email='$login' AND Password='$password' AND UID_follow=UID AND UID_social=UID";
 		
 		if ($rezultat = $polaczenie->query($sql))
 		{

@@ -24,7 +24,7 @@
     	$pytanie = $polaczenie->query("INSERT INTO `users` (`UID`, `Name`, `Surname`, `Email`, `Password`, `Terms`) VALUES ('$id', '$name', '$surname', '$email', '$password', '$setterms');");
       	
             if($pytanie){
-			$sql = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
+			$sql = "SELECT * FROM users WHERE Email='$email' AND Password='$password' AND UID_follow=UID AND UID_social=UID";
             if($rezultat = $polaczenie->query($sql)){
               	$polaczenie->query("INSERT INTO `socialmedia` (`UID_social`) VALUES ('$id');");
               	$polaczenie->query("INSERT INTO `followers`(`UID_follow`) VALUES ('$id')");

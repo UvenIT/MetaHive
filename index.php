@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['logged'])){
+		header("Location: ../LogOn/LogOn.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,20 +31,22 @@
             <i class="fa-solid fa-chevron-left fa-lg"></i>
             <h4>Me</h4>
         </div>
-        <img src="/ProfilePictures/Juric.jpg" alt="" class="profile-info-image">
-        <p class="profile-name">Richard Hamilton</p>
+        <div class="profile-img">
+            <img src="/ProfilePictures/Juric.jpg" alt="" class="profile-info-image">
+            <p class="profile-name"><?php echo $_SESSION['name']." ". $_SESSION['surname'] ?></p>
+        </div>
         <div class="profile-details">
             <div>
                 <p>Posts</p>
-                <p>3</p>
+                <p><?php echo $_SESSION['posts']?></p>
             </div>
             <div>
                 <p>Followers</p>
-                <p>1.3k</p>
+                <p><?php echo $_SESSION['followers']?></p>
             </div>
             <div>
                 <p>Follow</p>
-                <p>20</p>
+                <p><?php echo $_SESSION['follow']?></p>
             </div>
         </div>
         <div class="profile-edit">
@@ -56,9 +66,51 @@
                 <img src="/UserInterface/padlock.png" alt="">
                 <p>Privacy</p>
             </div>
-            <div class="profile-edit-logout">
-                <img src="/UserInterface/logout.png" alt="">
-                <p>Log out</p>
+          	<a href="logout.php">
+            	<div class="profile-edit-logout">
+                	<img src="/UserInterface/logout.png" alt="">
+                	<p>Log out</p>
+            	</div>
+          	</a>
+        </div>
+        <div class="profile-socialmedia--active d-none">
+            <div class="profile-socialmedia--active-container">
+                <div class="profile-sm--box fb-box">
+                    <img src="/UserInterface/icons8-facebook.svg">
+                    <div>
+                        <h5>Facebook</h5>
+                        <p>Richard Hamilton</p>
+                    </div>
+                </div>
+                <div class="profile-sm--box ins-box">
+                    <img src="/UserInterface/icons8-instagram.svg">
+                    <div>
+                        <h5>Instagram</h5>
+                        <p>Richard Hamilton</p>
+                    </div>
+                </div>
+                <div class="profile-sm--box tw-box">
+                    <img src="/UserInterface/icons8-twitter-circled.svg">
+                    <div>
+                        <h5>Twitter</h5>
+                        <p>Richard Hamilton</p>
+                    </div>
+                </div>
+                <div class="profile-sm--box sn-box">
+                    <img src="/UserInterface/icons8-snapchat.svg">
+                    <div>
+                        <h5>Snapchat</h5>
+                        <p>Richard Hamilton</p>
+                    </div>
+                </div>
+                <div class="profile-sm--box tt-box">
+                    <img src="/UserInterface/icons8-tiktok.svg">
+                    <div>
+                        <h5>Tiktok</h5>
+                        <p>Richard Hamilton</p>
+                    </div>
+                </div>
+                <p class="profile-sm-back">Back</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+@media screen and (max-width: 768px){
+    body{
+        height: 100vh;
+    }
+    @import 'Mobile/Mobile';
+}

@@ -5,6 +5,7 @@
     color: #FFFFFF;
     width: 100%;
     padding: 1rem 1.5rem;
+    padding-top: 1.5rem;
     text-align: center;
     &-nav{
         width: 100%;
@@ -58,5 +59,60 @@
     img{
         height: 100px;
         clip-path: circle(50% at 50% 50%);
+    }
+    .profile-socialmedia--active{
+        &-nav{
+            align-items: center;
+            h4{
+                margin: 0;
+                margin-left: 1rem;
+            }
+        }
+        &-container{
+            padding: 1rem 0;
+            .profile-sm--box{
+                padding: 0.15rem 0.75rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border-radius: 1rem;
+                margin-bottom: 0.75rem;
+                img{
+                    height: 36px;
+                }
+                div{
+                    margin-left: 0.5rem;
+                    text-align: start;
+                    h5, p{
+                        margin: 0;
+                    }
+                    h5{
+                        font-size: 1rem;
+                    }
+                    p{
+                        font-size: 0.825rem;
+                    }
+                }
+            }
+            .fb-box{
+                background: linear-gradient(90deg, rgba(66,165,245,1) 0%, rgba(66,165,245,1) 40%, rgba(182,219,249,1) 100%);
+            }
+            .ins-box{
+                background: linear-gradient(90deg, rgba(255,117,143,1) 0%, rgba(255,117,143,1) 40%, rgba(255,197,208,1) 100%);
+            }
+            .tw-box{
+                background: linear-gradient(90deg, rgba(59,148,221,1) 0%, rgba(59,148,221,1) 40%, rgba(178,211,237,1) 100%);
+            }
+            .sn-box{
+                color: #151718;
+                background: linear-gradient(90deg, rgba(255,226,70,1) 0%, rgba(255,226,70,1) 40%, rgba(255,242,169,1) 100%);
+            }
+            .tt-box{
+                background: linear-gradient(90deg, rgba(21,23,24,1) 0%, rgba(21,23,24,1) 40%, rgba(54,58,60,1) 100%);
+            }
+            .profile-sm-back{
+                color: #404041;
+            }
+        }
     }
 }

@@ -291,6 +291,7 @@
     color: #FFFFFF;
     width: 100%;
     padding: 1rem 1.5rem;
+    padding-top: 1.5rem;
     text-align: center;
   }
   .profile-info-nav {
@@ -355,6 +356,70 @@
     height: 100px;
     -webkit-clip-path: circle(50% at 50% 50%);
             clip-path: circle(50% at 50% 50%);
+  }
+  .profile-info .profile-socialmedia--active-nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profile-info .profile-socialmedia--active-nav h4 {
+    margin: 0;
+    margin-left: 1rem;
+  }
+  .profile-info .profile-socialmedia--active-container {
+    padding: 1rem 0;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box {
+    padding: 0.15rem 0.75rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box img {
+    height: 36px;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box div {
+    margin-left: 0.5rem;
+    text-align: start;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box div h5, .profile-info .profile-socialmedia--active-container .profile-sm--box div p {
+    margin: 0;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box div h5 {
+    font-size: 1rem;
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm--box div p {
+    font-size: 0.825rem;
+  }
+  .profile-info .profile-socialmedia--active-container .fb-box {
+    background: -webkit-gradient(linear, left top, right top, from(#42a5f5), color-stop(40%, #42a5f5), to(#b6dbf9));
+    background: linear-gradient(90deg, #42a5f5 0%, #42a5f5 40%, #b6dbf9 100%);
+  }
+  .profile-info .profile-socialmedia--active-container .ins-box {
+    background: -webkit-gradient(linear, left top, right top, from(#ff758f), color-stop(40%, #ff758f), to(#ffc5d0));
+    background: linear-gradient(90deg, #ff758f 0%, #ff758f 40%, #ffc5d0 100%);
+  }
+  .profile-info .profile-socialmedia--active-container .tw-box {
+    background: -webkit-gradient(linear, left top, right top, from(#3b94dd), color-stop(40%, #3b94dd), to(#b2d3ed));
+    background: linear-gradient(90deg, #3b94dd 0%, #3b94dd 40%, #b2d3ed 100%);
+  }
+  .profile-info .profile-socialmedia--active-container .sn-box {
+    color: #151718;
+    background: -webkit-gradient(linear, left top, right top, from(#ffe246), color-stop(40%, #ffe246), to(#fff2a9));
+    background: linear-gradient(90deg, #ffe246 0%, #ffe246 40%, #fff2a9 100%);
+  }
+  .profile-info .profile-socialmedia--active-container .tt-box {
+    background: -webkit-gradient(linear, left top, right top, from(#151718), color-stop(40%, #151718), to(#363a3c));
+    background: linear-gradient(90deg, #151718 0%, #151718 40%, #363a3c 100%);
+  }
+  .profile-info .profile-socialmedia--active-container .profile-sm-back {
+    color: #404041;
   }
 }
 

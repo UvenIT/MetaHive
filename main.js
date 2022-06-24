@@ -67,7 +67,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
             const symbol = card.querySelector(".crypto-symbol");
             const price = card.querySelector('.stock-price');
             const change = card.querySelector('.change-price');
-            alt.src = "CryptoIcons/svg/icon/" + cryptoData.symbol + ".svg"
+            alt.src = "CryptoIcons/svg/" + cryptoData.symbol + ".svg"
             alt.alt = cryptoData.id;
             symbol.innerHTML = cryptoData.symbol;
             price.innerHTML = '$' + cryptoData.current_price;
@@ -224,6 +224,22 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
             profilebox.classList.add('d-none');
             nav.classList.remove('d-none');
             menu.classList.remove('d-none');
+        })
+    });
+
+
+    var socialmediabutton = document.querySelector('.profile-edit-links');
+    socialmediabutton.addEventListener('click', () => {
+        var links = document.querySelector('.profile-edit');
+        links.classList.add('d-none');;
+
+        var profileSmActive = document.querySelector('.profile-socialmedia--active');
+        profileSmActive.classList.remove('d-none');
+
+        var profileSmBack = document.querySelector('.profile-sm-back');
+        profileSmBack.addEventListener('click', () => {
+            profileSmActive.classList.add('d-none');
+            links.classList.remove('d-none');;
         })
     })
 

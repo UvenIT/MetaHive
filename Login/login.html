@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Log in</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='login.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="choosebox">
+        <div class="choosebox-logo">
+            <img src="/UserInterface/logo.png" alt="">
+            <h3>MetaChat</h3>
+        </div>
+        <div class="choosebox-buttons">
+            <h5>Create a free account</h5>
+            <button class="createaccount-button">Create an account</button>
+            <button class="login-button">Login</button>
+        </div>
+    </div>
+    <div class="createaccount d-none">
+        <div class="createaccount-nav d-flex">
+            <i class="fa-solid fa-chevron-left fa-lg"></i>
+            <h4>Sign up</h4>
+        </div>
+        <form action="Php/Signup.php" method="post">
+            <h3>Get Started</h3>
+            <div class="d-flex justify-content-between name">
+                <input type="text" name="name" id="" placeholder="Name">
+                <input type="text" name="surname" id="" placeholder="Surname">
+            </div>
+            <input type="email" name="email" id="" placeholder="Email">
+            <input type="password" name="password" id="" placeholder="Password">
+            <div class="terms">
+                <input type="checkbox" name="terms" id="">
+                <p>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+            </div>
+            <input type="submit" value="Create account">
+        </form>
+    </div>
+    <div class="login d-none">
+        <div class="login-nav d-flex">
+            <i class="fa-solid fa-chevron-left fa-lg"></i>
+            <h4>Login</h4>
+        </div>
+        <form action="Php/Login.php" method="post">
+            <h3>Welcome back!</h3>
+            <input type="email" name="login" id="" placeholder="Email">
+            <input type="password" name="password" id="" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <script src='login.js'></script>
+</body>
+</html>

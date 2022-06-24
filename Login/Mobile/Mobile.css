@@ -1,0 +1,154 @@
+.choosebox, .createaccount, .login {
+  padding: 1rem 1.5rem;
+  background: #0d0d0f;
+  color: #FFFFFF;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.choosebox {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.choosebox-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5rem;
+}
+
+.choosebox-buttons {
+  text-align: center;
+}
+
+.choosebox-buttons h5 {
+  margin-bottom: 1.5rem;
+}
+
+.choosebox-buttons button {
+  width: 70%;
+  border-radius: 1.25rem;
+  border: none;
+  padding: 1rem 2rem;
+  background: #ffcc25;
+}
+
+.choosebox-buttons button:focus {
+  outline: none;
+}
+
+.choosebox-buttons button:hover {
+  background: #f1bd12;
+}
+
+.choosebox-buttons .createaccount-button {
+  margin-bottom: 1.5rem;
+}
+
+.choosebox-buttons .login-button {
+  background: #1f2122;
+  color: #FFFFFF;
+}
+
+.choosebox-buttons .login-button:hover {
+  color: #000000;
+}
+
+.createaccount, .login {
+  padding-top: 1.5rem;
+}
+
+.createaccount-nav, .login-nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2rem;
+}
+
+.createaccount-nav h4, .login-nav h4 {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.createaccount form, .login form {
+  position: relative;
+  top: 17.5%;
+}
+
+.createaccount form h3, .login form h3 {
+  margin-bottom: 2rem;
+}
+
+.createaccount form .name input, .login form .name input {
+  width: 49%;
+}
+
+.createaccount form input, .login form input {
+  width: 100%;
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
+  background: #1f2122;
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+}
+
+.createaccount form input::-webkit-input-placeholder, .login form input::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+
+.createaccount form input:-ms-input-placeholder, .login form input:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.createaccount form input::-ms-input-placeholder, .login form input::-ms-input-placeholder {
+  color: #FFFFFF;
+}
+
+.createaccount form input::placeholder, .login form input::placeholder {
+  color: #FFFFFF;
+}
+
+.createaccount form input:focus, .login form input:focus {
+  outline: none;
+}
+
+.createaccount form .terms, .login form .terms {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 9fr;
+      grid-template-columns: 1fr 9fr;
+  font-size: 0.825rem;
+}
+
+.createaccount form .terms input, .login form .terms input {
+  height: 16px;
+}
+
+.createaccount form .terms a, .login form .terms a {
+  color: #ffcc25;
+}
+
+.createaccount form input[type="submit"], .login form input[type="submit"] {
+  background: #ffcc25;
+  color: #000000;
+}
+/*# sourceMappingURL=Mobile.css.map */

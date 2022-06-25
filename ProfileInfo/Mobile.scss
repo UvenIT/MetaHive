@@ -41,7 +41,7 @@
         margin-top: 1rem;
         overflow-y: scroll;
         a{
-            color: $text;
+            color: $text !important;
         }
         div{
             display: flex;

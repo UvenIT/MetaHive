@@ -27,7 +27,7 @@
   }
   nav h4 {
     margin: 0;
-    color: white;
+    color: #FFFFFF;
   }
   nav img {
     height: 32px;
@@ -262,7 +262,7 @@
   .maincolumn-stock .maincolumn-stock-cryptodetails .stock-chart {
     padding: 1rem;
     border-radius: 1rem;
-    background: white;
+    background: #FFFFFF;
     margin-bottom: 1rem;
   }
   .maincolumn-stock .maincolumn-stock-cryptodetails .stock-chart--details {
@@ -331,6 +331,9 @@
   .profile-info .profile-edit {
     margin-top: 1rem;
     overflow-y: scroll;
+  }
+  .profile-info .profile-edit a {
+    color: #FFFFFF !important;
   }
   .profile-info .profile-edit div {
     display: -webkit-box;

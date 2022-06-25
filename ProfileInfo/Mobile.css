@@ -56,7 +56,7 @@
 }
 
 .profile-info .profile-edit a {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .profile-info .profile-edit div {

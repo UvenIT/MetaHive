@@ -6,6 +6,13 @@ var users = document.querySelector('.maincolumn-users');
 var stock = document.querySelector('.maincolumn-stock');
 var navtext = document.querySelector('.nav-text');
 
+const CryptoContainer = document.querySelector('[crypto-cards-container]');
+var Pagination = document.querySelector('.maincolumn-stock-pagination');
+var Page2 = document.querySelector('[crypto-cards-page2]');
+var pagenumber = document.querySelector('.stock-page--number');
+var paginationLeft = Pagination.querySelector('.fa-chevron-left');
+var paginationRight = Pagination.querySelector('.fa-chevron-right');
+
 var buttons = [chatsbutton,usersbutton,stockbutton];
 buttons.forEach(element => {
     element.addEventListener('click', () =>{
@@ -19,12 +26,22 @@ buttons.forEach(element => {
             users.classList.add('d-none');
             stock.classList.add('d-none');
             chats.classList.remove('d-none');
+            CryptoContainer.classList.remove('d-none');
+            Page2.classList.add('d-none');
+            pagenumber.innerHTML = "1";
+            paginationLeft.style.color = '#515558';
+            paginationRight.style.color = '#FFFFFF';
         }
         if(element.classList.contains('usersbutton')){
             navtext.innerHTML = "Users";
             chats.classList.add('d-none');
             stock.classList.add('d-none');
             users.classList.remove('d-none');
+            CryptoContainer.classList.remove('d-none');
+            Page2.classList.add('d-none');
+            pagenumber.innerHTML = "1";
+            paginationLeft.style.color = '#515558';
+            paginationRight.style.color = '#FFFFFF';
         }
         if(element.classList.contains('stockbutton')){
             navtext.innerHTML = "Stock";
@@ -36,7 +53,6 @@ buttons.forEach(element => {
 });
 
 const CryptoTemplate = document.querySelector('[crypto-card-template]');
-const CryptoContainer = document.querySelector('[crypto-cards-container]');
 const SearchInput = document.querySelector('[crypto-search]');
 
 let cryptoArray = [];
@@ -209,6 +225,8 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         });
     })
 
+    var profileSmActive = document.querySelector('.profile-socialmedia--active');
+    var links = document.querySelector('.profile-edit');
     var navimage = document.querySelector('.nav-image');
     navimage.addEventListener('click', () => {
         var profilebox = document.querySelector('.profile-info');
@@ -219,6 +237,8 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         profilebox.classList.remove('d-none');
         nav.classList.add('d-none');
         menu.classList.add('d-none');
+        profileSmActive.classList.add('d-none');
+        links.classList.remove('d-none');
 
         profilearrow.addEventListener('click', () => {
             profilebox.classList.add('d-none');
@@ -230,10 +250,8 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
 
     var socialmediabutton = document.querySelector('.profile-edit-links');
     socialmediabutton.addEventListener('click', () => {
-        var links = document.querySelector('.profile-edit');
-        links.classList.add('d-none');;
+        links.classList.add('d-none');
 
-        var profileSmActive = document.querySelector('.profile-socialmedia--active');
         profileSmActive.classList.remove('d-none');
 
         var profileSmBack = document.querySelector('.profile-sm-back');

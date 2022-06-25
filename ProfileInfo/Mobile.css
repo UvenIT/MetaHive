@@ -172,17 +172,29 @@
   margin-top: 1rem;
 }
 
-.profile-info .profile-edit--active button {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: #515558;
-  border-radius: 0.5rem;
-  color: #FFFFFF;
+.profile-info .profile-edit--active .profile-file {
+  position: relative;
 }
 
-.profile-info .profile-edit--active button:focus {
-  outline: none;
+.profile-info .profile-edit--active .profile-file input[type="file"] {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.profile-info .profile-edit--active .profile-file label {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: #515558;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.profile-info .profile-edit--active .profile-file label:hover {
   background: #151718;
 }
 

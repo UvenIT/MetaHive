@@ -24,7 +24,7 @@
 <body>
     <nav>
         <h4 class="nav-text">Chats</h4>
-        <img src="/ProfilePictures/Juric.jpg" alt="" class="nav-image">
+        <img src="/ProfileInfo/Upload/Images/<?php echo $_SESSION['profileimage'] ?>" alt="" class="nav-image">
     </nav>
     <div class="profile-info d-none">
         <div class="profile-info-nav d-flex">
@@ -32,7 +32,7 @@
             <h4>Me</h4>
         </div>
         <div class="profile-img">
-            <img src="/ProfilePictures/Juric.jpg" alt="" class="profile-info-image">
+            <img src="/ProfileInfo/Upload/Images/<?php echo $_SESSION['profileimage'] ?>" alt="" class="profile-info-image">
             <p class="profile-name"><?php echo $_SESSION['name']." ". $_SESSION['surname'] ?></p>
         </div>
         <div class="profile-details">
@@ -114,7 +114,13 @@
             </div>
         </div>
         <div class="profile-edit--active d-none">
-            <button class="profile-edit-upload">Upload image</button>
+            <div class="profile-file">
+                <form action="ProfileInfo/Upload/uploadfile.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" value="">
+                    <label for="file">Upload image</label>
+                    <input type="submit" name="uploadfile">
+                </form>
+            </div>
             <div class="change-email">
                 <p>Change email</p>
                 <input type="text" placeholder="New Email">

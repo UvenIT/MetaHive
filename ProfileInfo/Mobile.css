@@ -55,6 +55,10 @@
   overflow-y: scroll;
 }
 
+.profile-info .profile-edit a {
+  color: #FFFFFF;
+}
+
 .profile-info .profile-edit div {
   display: -webkit-box;
   display: -ms-flexbox;

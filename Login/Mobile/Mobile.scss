@@ -1,7 +1,8 @@
+@import "../../Palette/palette";
 .choosebox, .createaccount, .login{
     padding: 1rem 1.5rem;
-    background: #0d0d0f;
-    color: #FFFFFF;
+    background: $maincolor;
+    color: $text;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -44,7 +45,7 @@
         }
         .login-button{
             background: #1f2122;
-            color: #FFFFFF;
+            color: $text;
             &:hover{
                 color: #000000;
             }
@@ -79,9 +80,9 @@
             background: #1f2122;
             border: none;
             border-radius: 0.5rem;
-            color: #FFFFFF;
+            color: $text;
             &::placeholder{
-                color: #FFFFFF;
+                color: $text;
             }
             &:focus{
                 outline: none;

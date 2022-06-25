@@ -1,14 +1,15 @@
+@import "../Palette/palette";
 nav{
     width: 100%;
     padding: 1.5rem;
-    background: #0d0d0f;
+    background: $maincolor;
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    color: #515558;
+    color: $menucolor;
     h4{
         margin: 0;
-        color: white;
+        color: $text;
     }
     img{
         height: 32px;

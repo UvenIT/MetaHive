@@ -1,20 +1,21 @@
+@import "../Palette/palette";
 .maincolumn{
     height: 85vh;
-    background: #0d0d0f;
+    background: $maincolor;
     &-chats{
         padding: 1rem 1.5rem;
         &--input{
-            background: #151718;
+            background: $secondarycolor;
             border-radius: 0.75rem;
             width: 100%;
             padding: 0 0.5rem;
-            color: #FFFFFF;
+            color: $text;
             margin-bottom: 1rem;
             input{
                 background: transparent;
                 height: 42px;
                 border: none;
-                color: #FFFFFF;
+                color: $text;
                 &:focus{
                     outline: none;
                 }
@@ -46,7 +47,7 @@
                         margin-right: 0.25rem;
                     }
                     h5{
-                        color: #FFFFFF;
+                        color: $text;
                         font-size: 1rem;
                         margin: 0;
                     }
@@ -57,7 +58,7 @@
                 }
             }
             &:hover{
-                background: #151718;
+                background: $secondarycolor;
             }
         }
     }
@@ -67,7 +68,7 @@
             display: flex;
             align-items: center;
             padding: 0.5rem;
-            color: #FFFFFF;
+            color: $text;
             border-radius: 0.5rem;
             img{
                 height: 50px;
@@ -77,7 +78,7 @@
                 margin-left: 0.5rem;
             }
             &:hover{
-                background: #151718;
+                background: $secondarycolor;
             }
         }
         .line{
@@ -90,17 +91,17 @@
     &-stock{
         padding: 1rem 1.5rem;
         &--input{
-            background: #151718;
+            background: $secondarycolor;
             border-radius: 0.75rem;
             width: 100%;
             padding: 0 0.5rem;
-            color: #FFFFFF;
+            color: $text;
             margin-bottom: 1rem;
             input{
                 background: transparent;
                 height: 42px;
                 border: none;
-                color: #FFFFFF;
+                color: $text;
                 &:focus{
                     outline: none;
                 }
@@ -117,7 +118,7 @@
             grid-template-columns: 2fr 3fr 2fr;
             align-items: center;
             padding: 0.5rem;
-            color: #FFFFFF;
+            color: $text;
             border-radius: 0.5rem;
             div{
                 display: flex;
@@ -136,7 +137,7 @@
                 text-align: end;
             }
             &:hover{
-                background: #151718;
+                background: $secondarycolor;
             }
         }
         &-pagination{
@@ -147,14 +148,14 @@
             padding: 0.5rem 1rem;
             h5{
                 margin: 0;
-                color: #FFFFFF;
+                color: $text;
             }
             i:last-of-type{
-                color: #FFFFFF;
+                color: $text;
             }
         }
         .maincolumn-stock-cryptodetails{
-            color:#FFFFFF;
+            color:$text;
             i{
                 margin-bottom: 2rem;
             }
@@ -164,7 +165,7 @@
             .stock-chart{
                 padding: 1rem;
                 border-radius: 1rem;
-                background: white;
+                background: $text;
                 margin-bottom: 1rem;
             }
             .stock-chart--details{

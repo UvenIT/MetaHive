@@ -1,8 +1,9 @@
+@import "../Palette/palette";
 .profile-info{
     position: fixed;
-    background: #0d0d0f;
+    background: $maincolor;
     height: 100vh;
-    color: #FFFFFF;
+    color: $text;
     width: 100%;
     padding: 1rem 1.5rem;
     padding-top: 1.5rem;
@@ -32,13 +33,16 @@
                 margin-bottom: 0;
             }
             &:hover{
-                background:#151718;
+                background:$secondarycolor;
             }
         }
     }
     .profile-edit{
         margin-top: 1rem;
         overflow-y: scroll;
+        a{
+            color: $text;
+        }
         div{
             display: flex;
             align-items: center;
@@ -52,7 +56,7 @@
                 margin-left: 0.5rem;
             }
             &:hover{
-                background: #151718;
+                background: $secondarycolor;
             }
         }
     }

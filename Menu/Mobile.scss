@@ -1,6 +1,7 @@
+@import "../Palette/palette";
 .menu {
     width: 100%;
-    background: #0d0d0f;
+    background: $maincolor;
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -9,19 +10,19 @@
         width: 100%;
         text-align: center;
         padding: 0.5rem;
-        color: #515558;
+        color: $menucolor;
         text-decoration: none;
         p {
             margin: 0;
             font-size: 0.825rem;
         }
         &:focus {
-            color: #515558;
+            color: $menucolor;
             text-decoration: none;
         }
     }
     &-button--active{
-        color: #FFFFFF !important;
+        color: $text !important;
         text-decoration: none !important;
     }
 }

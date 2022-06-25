@@ -113,6 +113,18 @@
                 <p class="profile-sm-back">Back</p>
             </div>
         </div>
+        <div class="profile-edit--active d-none">
+            <button class="profile-edit-upload">Upload image</button>
+            <div class="change-email">
+                <p>Change email</p>
+                <input type="text" placeholder="New Email">
+            </div>
+            <div class="change-password">
+                <p>Change password</p>
+                <input type="password" placeholder="New Password">
+            </div>
+            <p class="profile-edit-back">Back</p>
+        </div>
     </div>
     <div class="menu">
         <a href="#" class="chatsbutton menu-button--active"><i class="fa-solid fa-message"></i><p>Chats</p></a>

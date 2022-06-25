@@ -226,6 +226,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
     })
 
     var profileSmActive = document.querySelector('.profile-socialmedia--active');
+    var profileEditAcive = document.querySelector('.profile-edit--active');
     var links = document.querySelector('.profile-edit');
     var navimage = document.querySelector('.nav-image');
     navimage.addEventListener('click', () => {
@@ -238,6 +239,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         nav.classList.add('d-none');
         menu.classList.add('d-none');
         profileSmActive.classList.add('d-none');
+        profileEditAcive.classList.add('d-none');
         links.classList.remove('d-none');
 
         profilearrow.addEventListener('click', () => {
@@ -258,6 +260,19 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         profileSmBack.addEventListener('click', () => {
             profileSmActive.classList.add('d-none');
             links.classList.remove('d-none');;
+        })
+    });
+
+    var editprofilebutton = document.querySelector('.profile-edit-profile');
+    editprofilebutton.addEventListener('click', () => {
+        links.classList.add('d-none');
+
+        profileEditAcive.classList.remove('d-none');
+
+        var profilEditBack = document.querySelector('.profile-edit-back');
+        profilEditBack.addEventListener('click', () => {
+            links.classList.remove('d-none');
+            profileEditAcive.classList.add('d-none');
         })
     })
 

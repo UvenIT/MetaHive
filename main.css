@@ -424,6 +424,57 @@
   .profile-info .profile-socialmedia--active-container .profile-sm-back {
     color: #404041;
   }
+  .profile-info .profile-edit--active {
+    margin-top: 1rem;
+  }
+  .profile-info .profile-edit--active button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #515558;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active button:focus {
+    outline: none;
+    background: #151718;
+  }
+  .profile-info .profile-edit--active .change-email {
+    margin-top: 1rem;
+  }
+  .profile-info .profile-edit--active .change-email, .profile-info .profile-edit--active .change-password {
+    text-align: start;
+  }
+  .profile-info .profile-edit--active .change-email p, .profile-info .profile-edit--active .change-password p {
+    margin: 0;
+  }
+  .profile-info .profile-edit--active .change-email input, .profile-info .profile-edit--active .change-password input {
+    width: 100%;
+    padding: 0.5rem 1.25rem;
+    margin-bottom: 1rem;
+    background: #1f2122;
+    border: none;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active .change-email input::-webkit-input-placeholder, .profile-info .profile-edit--active .change-password input::-webkit-input-placeholder {
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active .change-email input:-ms-input-placeholder, .profile-info .profile-edit--active .change-password input:-ms-input-placeholder {
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active .change-email input::-ms-input-placeholder, .profile-info .profile-edit--active .change-password input::-ms-input-placeholder {
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active .change-email input::placeholder, .profile-info .profile-edit--active .change-password input::placeholder {
+    color: #FFFFFF;
+  }
+  .profile-info .profile-edit--active .change-email input:focus, .profile-info .profile-edit--active .change-password input:focus {
+    outline: none;
+  }
+  .profile-info .profile-edit--active .profile-edit-back {
+    color: #404041;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1200px) {

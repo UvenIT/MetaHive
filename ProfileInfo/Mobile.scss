@@ -119,4 +119,46 @@
             }
         }
     }
+    .profile-edit--active{
+        margin-top: 1rem;
+        button{
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: $menucolor;
+            border-radius: 0.5rem;
+            color: $text;
+            &:focus{
+                outline: none;
+                background: $secondarycolor;
+            }
+        }
+        .change-email{
+            margin-top: 1rem;
+        }
+        .change-email, .change-password{
+            text-align: start;
+            p{
+                margin: 0;
+            }
+            input{
+                width: 100%;
+                padding: 0.5rem 1.25rem;
+                margin-bottom: 1rem;
+                background: #1f2122;
+                border: none;
+                border-radius: 0.5rem;
+                color: $text;
+                &::placeholder{
+                    color: $text;
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .profile-edit-back{
+            color: #404041;
+        }
+    }
 }

@@ -8,6 +8,7 @@
 @media screen and (max-width: 768px){
     body{
         height: 100vh;
+        height: calc(var(--vh, 1vh));
     }
     @import 'Nav/Mobile';
     @import 'Menu/Mobile';

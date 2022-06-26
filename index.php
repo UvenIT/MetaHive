@@ -116,9 +116,17 @@
         <div class="profile-edit--active d-none">
             <div class="profile-file">
                 <form action="ProfileInfo/Upload/uploadfile.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file" id="file" value="">
-                    <label for="file">Upload image</label>
-                    <input type="submit" name="uploadfile">
+                    <div class="profile-file--input">
+                        <input type="file" name="file" id="file" value="" accept="image/*>
+                        <label for="file">Upload image</label>
+                    </div>
+                    <div class="profile-file--active d-none">
+                        <h5>Upload new profile avatar</h5>
+                        <div class="d-flex">
+                            <input type="button" value="Back" class="uploadbackbutton">
+                            <input type="submit" name="uploadfile" value="Upload">
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="change-email">

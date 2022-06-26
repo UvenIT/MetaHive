@@ -122,24 +122,49 @@
     .profile-edit--active{
         margin-top: 1rem;
         .profile-file{
-            position: relative;
-            input[type="file"]{
-                position: absolute;
-                width: 100%;
-                opacity: 0;
-                cursor: pointer;
-                top: 0;
-                left: 0;
+            &--input{
+                position: relative;
+                input[type="file"]{
+                    position: absolute;
+                    width: 100%;
+                    opacity: 0;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                }
+                label{
+                    display: block;
+                    padding: 0.5rem 1rem;
+                    background: $menucolor;
+                    color: $text;
+                    cursor: pointer;
+                    border-radius: 0.5rem;
+                    &:hover{
+                        background: $secondarycolor;
+                    }
+                }
             }
-            label{
-                display: block;
-                padding: 0.5rem 1rem;
-                background: $menucolor;
-                color: $text;
-                cursor: pointer;
-                border-radius: 0.5rem;
-                &:hover{
-                    background: $secondarycolor;
+            &--active{
+                position: absolute;
+                bottom: 0;
+                left: 0.5rem;
+                width: calc(100% - 1rem);
+                padding: 1.5rem;
+                background: #1f2122;
+                border-radius: 0.5rem 0.5rem 0 0;
+                h5{
+                    margin-bottom: 1rem;
+                }
+                div{
+                    justify-content: space-between;
+                    input{
+                        width: 49%;
+                        padding: 0.5rem 1rem;
+                        background: $menucolor;
+                        color: $text;
+                        border: none;
+                        border-radius: 0.5rem;
+                    }
                 }
             }
         }

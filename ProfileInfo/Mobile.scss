@@ -196,4 +196,131 @@
             color: #404041;
         }
     }
+    .profile-explore{
+        &--nav{
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            h4{
+                margin: 0;
+                margin-left: 1rem;
+            }
+        }
+        &--container{
+            padding: 1rem 0 0.5rem;
+            overflow: scroll;
+            height: 80vh;
+            .addpost{
+                border-radius: 1rem;
+                border: 1px solid #353536;
+                text-align: start;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                .post-profile-img{
+                    height: 42px;
+                    margin-right: 1rem;
+                }
+                .inputs{
+                    width: 100%;
+                    .add-text{
+                        word-wrap: break-word;
+                        word-break: break-all;
+                        resize: none;
+                    }
+                    .add-tags, .add-text{
+                        color: $text;
+                        width: calc(100%);
+                        background: #1f2122;
+                        border: none;
+                        border-radius: 0.5rem;
+                        margin-bottom: 1rem;
+                        padding: 0.5rem 1rem;
+                    }
+                }
+                .uploaded-img{
+                    display: none;
+                    height: 60px;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+                    border-radius: 0.5rem;
+                }
+                .add-img{
+                    width: fit-content;
+                    position: relative;
+                    align-items: center;
+                    padding-top: 1rem;
+                    &-input{
+                        position: absolute;
+                        width: 100%;
+                        height: fit-content;
+                        opacity: 0;
+                        cursor: pointer;
+                        bottom: 0;
+                    }
+                    label{
+                        margin: 0;
+                    }
+                }
+                input[type="submit"]{
+                    border:none;
+                    background: dodgerblue;
+                    color: $text;
+                    border-radius: 1rem;
+                    padding: 0.5rem 1rem;
+                }
+            }
+            .postbox{
+                border: 1px solid #353536;
+                border-radius: 1rem;
+                text-align: start !important;
+                padding: 1rem 0;
+                margin-bottom: 2rem;
+                &-nav{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 1rem;
+                    img{
+                        height: 42px;
+                        margin-right: 1rem;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 0.825rem;
+                        color: #404041;
+                    }
+                }
+                &-img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+                    margin-bottom: 0.25rem;
+                }
+                &-interactions{
+                    display: flex;
+                    justify-content: space-between;
+                    &-like{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1rem;
+                        width: 32%;
+                        border-radius: 0.5rem;
+                        p{
+                            margin: 0;
+                            margin-left: 0.5rem;
+                        }
+                        &:hover{
+                            background: $secondarycolor;
+                        }
+                    }
+                }
+                &-nav, &-text, &-tags{
+                    padding: 0 1rem;
+                }
+            }
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
 }

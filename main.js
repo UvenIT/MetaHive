@@ -12,16 +12,18 @@ var Page2 = document.querySelector('[crypto-cards-page2]');
 var pagenumber = document.querySelector('.stock-page--number');
 var paginationLeft = Pagination.querySelector('.fa-chevron-left');
 var paginationRight = Pagination.querySelector('.fa-chevron-right');
+var profilebox = document.querySelector('.profile-info');
+var nav = document.querySelector('nav')
 
-var buttons = [chatsbutton,usersbutton,stockbutton];
+var buttons = [chatsbutton, usersbutton, stockbutton];
 buttons.forEach(element => {
-    element.addEventListener('click', () =>{
+    element.addEventListener('click', () => {
         chatsbutton.classList.remove('menu-button--active');
         usersbutton.classList.remove('menu-button--active');
         stockbutton.classList.remove('menu-button--active');
         element.classList.toggle('menu-button--active');
 
-        if(element.classList.contains('chatsbutton')){
+        if (element.classList.contains('chatsbutton')) {
             navtext.innerHTML = "Chats";
             users.classList.add('d-none');
             stock.classList.add('d-none');
@@ -31,8 +33,10 @@ buttons.forEach(element => {
             pagenumber.innerHTML = "1";
             paginationLeft.style.color = '#515558';
             paginationRight.style.color = '#FFFFFF';
+            profilebox.classList.add('d-none');
+            nav.classList.remove('d-none');
         }
-        if(element.classList.contains('usersbutton')){
+        if (element.classList.contains('usersbutton')) {
             navtext.innerHTML = "Users";
             chats.classList.add('d-none');
             stock.classList.add('d-none');
@@ -42,12 +46,16 @@ buttons.forEach(element => {
             pagenumber.innerHTML = "1";
             paginationLeft.style.color = '#515558';
             paginationRight.style.color = '#FFFFFF';
+            profilebox.classList.add('d-none');
+            nav.classList.remove('d-none');
         }
-        if(element.classList.contains('stockbutton')){
+        if (element.classList.contains('stockbutton')) {
             navtext.innerHTML = "Stock";
             chats.classList.add('d-none');
             users.classList.add('d-none');
             stock.classList.remove('d-none');
+            profilebox.classList.add('d-none');
+            nav.classList.remove('d-none');
         }
     })
 });
@@ -66,7 +74,7 @@ SearchInput.addEventListener('input', e => {
         Page2.classList.remove('d-none');
         var Pagination = document.querySelector('.maincolumn-stock-pagination');
         Pagination.classList.add('d-none');
-        if(e.target.value === ''){
+        if (e.target.value === '') {
             Pagination.classList.remove('d-none');
             Page2.classList.add('d-none');
         }
@@ -77,7 +85,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
     .then(res => res.json())
     .then(data => {
         array1h = [];
-        cryptoArray = data.map(cryptoData =>{
+        cryptoArray = data.map(cryptoData => {
             const card = CryptoTemplate.content.cloneNode(true).children[0];
             const alt = card.querySelector(".crypto-icon");
             const symbol = card.querySelector(".crypto-symbol");
@@ -88,16 +96,16 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
             symbol.innerHTML = cryptoData.symbol;
             price.innerHTML = '$' + cryptoData.current_price;
 
-            change.innerHTML = Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 + '%';
-            if(Math.round(cryptoData.price_change_percentage_1h_in_currency *1000)/1000 > 0){
+            change.innerHTML = Math.round(cryptoData.price_change_percentage_1h_in_currency * 1000) / 1000 + '%';
+            if (Math.round(cryptoData.price_change_percentage_1h_in_currency * 1000) / 1000 > 0) {
                 change.style.color = '#4eaf0a';
             }
-            else{
+            else {
                 change.style.color = '#e15241';
             }
             CryptoContainer.append(card);
 
-            for(i = 10; i < 20; i++){
+            for (i = 10; i < 20; i++) {
                 CryptoContainer.childNodes[i]
             }
             return { name: cryptoData.name, symbol: cryptoData.symbol, element: card, Child: CryptoContainer.childNodes[i] }
@@ -106,8 +114,8 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
     .then(ChildCount => {
         var CryptoContainerChild = CryptoContainer.childElementCount;
         CryptoBoxes = document.querySelectorAll('.maincolumn-stock--box');
-        for(i=0; i<CryptoContainerChild; i++){
-            if(i>9){
+        for (i = 0; i < CryptoContainerChild; i++) {
+            if (i > 9) {
                 var Page2 = document.querySelector('[crypto-cards-page2]');
                 Page2.appendChild(CryptoBoxes[i]);
                 Page2.classList.add('d-none');
@@ -142,17 +150,17 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                     .then(res => res.json())
                     .then(info => {
                         var pricesarray = [];
-                        for(i = 1; i < 25; i++){
+                        for (i = 1; i < 25; i++) {
                             var prices = info['prices'][i][1];
                             pricesarray.push(prices);
                         }
                         //Min and Max values for 24h
-                        low24 = Math.round(Math.min(...pricesarray)*1000)/1000;
-                        high24 = Math.round(Math.max(...pricesarray)*1000)/1000;
-                        
+                        low24 = Math.round(Math.min(...pricesarray) * 1000) / 1000;
+                        high24 = Math.round(Math.max(...pricesarray) * 1000) / 1000;
+
                         var stockdetails = document.createElement('div');
                         stockdetails.classList.add('maincolumn-stock-cryptodetails');
-                        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>"+ capelementalt.replaceAll('-', ' ') + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>"+ low24 +"</p></div><div><h5>24h High</h5><p class='stock-24high'>"+ high24 +"</p></div><div><h5>1h</h5><p class='stock-24h'>2.0%</p></div><div><h5>24h</h5><p class='stock-24h'>5.0%</p></div></div>";
+                        stockdetails.innerHTML = "<i class='fa-solid fa-chevron-left fa-lg stock-cryptodetails--arrow'></i><h1>" + capelementalt.replaceAll('-', ' ') + "</h1><div class='stock-chart'><h5>Last 24h</h5><canvas id='myChart'></canvas></div><div class='stock-chart--details'><div><h5>24h Low</h5><p class='stock-24low'>" + low24 + "</p></div><div><h5>24h High</h5><p class='stock-24high'>" + high24 + "</p></div><div><h5>1h</h5><p class='stock-24h'>2.0%</p></div><div><h5>24h</h5><p class='stock-24h'>5.0%</p></div></div>";
 
                         var stockinput = document.querySelector('.maincolumn-stock--input');
                         var pagination = document.querySelector('.maincolumn-stock-pagination');
@@ -162,7 +170,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                         cryptolist.classList.add('d-none');
                         document.querySelector(".maincolumn-stock").appendChild(stockdetails);
                         var backarrow = document.querySelector('.stock-cryptodetails--arrow');
-                        backarrow.addEventListener('click', () =>{
+                        backarrow.addEventListener('click', () => {
                             stockdetails.remove();
                             cryptolist.classList.remove('d-none');
                             stockinput.classList.remove('d-none');
@@ -175,7 +183,7 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                         const data = {
                             labels: labels,
                             datasets: [{
-                                label: capelementalt  + ' ($)',
+                                label: capelementalt + ' ($)',
                                 backgroundColor: 'rgb(255, 99, 132)',
                                 borderColor: 'rgb(255, 99, 132)',
                                 data: pricesarray,
@@ -192,16 +200,16 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                                     }
                                 },
                                 scales: {
-                                    x:{
+                                    x: {
                                         grid: {
                                             display: false,
                                         }
                                     },
                                     y: {
-                                      display: false,
-                                      grid: {
                                         display: false,
-                                      }
+                                        grid: {
+                                            display: false,
+                                        }
                                     }
                                 }
                             },
@@ -214,9 +222,9 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
                     .then(colors => {
                         var stock24h = document.querySelectorAll('.stock-24h');
                         stock24h.forEach(element => {
-                            if(element.innerHTML > 0){
+                            if (element.innerHTML > 0) {
                                 element.style.color = "#4eaf0a";
-                            }else{
+                            } else {
                                 element.style.color = "#e15241";
                             }
                         });
@@ -225,65 +233,119 @@ fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=mark
         });
     })
 
-    var profileSmActive = document.querySelector('.profile-socialmedia--active');
-    var profileEditAcive = document.querySelector('.profile-edit--active');
-    var profileFileuploadActive = document.querySelector('.profile-file--active');
-    var links = document.querySelector('.profile-edit');
-    var navimage = document.querySelector('.nav-image');
-    navimage.addEventListener('click', () => {
-        var profilebox = document.querySelector('.profile-info');
-        var profilearrow = profilebox.querySelector('.fa-chevron-left');
-        var nav = document.querySelector('nav');
-        var menu = document.querySelector('.menu');
+var profileSmActive = document.querySelector('.profile-socialmedia--active');
+var profileEditAcive = document.querySelector('.profile-edit--active');
+var profileFileuploadActive = document.querySelector('.profile-file--active');
+var profileExploreActive = document.querySelector('.profile-explore');
+var profileInfoNav = document.querySelector('.profile-info-nav');
+var links = document.querySelector('.profile-edit');
+var navimage = document.querySelector('.nav-image');
+var profileimage = document.querySelector('.profile-img');
+var profileDetails = document.querySelector('.profile-details');
+navimage.addEventListener('click', () => {
+    var profilebox = document.querySelector('.profile-info');
+    var profilearrow = profilebox.querySelector('.fa-chevron-left');
+    var nav = document.querySelector('nav');
+    var menu = document.querySelector('.menu');
 
-        profilebox.classList.remove('d-none');
-        nav.classList.add('d-none');
-        menu.classList.add('d-none');
+    profilebox.classList.remove('d-none');
+    nav.classList.add('d-none');
+    menu.classList.add('d-none');
+    profileSmActive.classList.add('d-none');
+    profileEditAcive.classList.add('d-none');
+    links.classList.remove('d-none');
+    profileFileuploadActive.classList.add('d-none');
+    profileExploreActive.classList.add('d-none');
+    profileInfoNav.classList.remove('d-none');
+    profileInfoNav.classList.add('d-flex');
+    profileimage.classList.remove('d-none');
+    profileDetails.classList.remove('d-none');
+    preview.classList.add('d-none');
+
+    profilearrow.addEventListener('click', () => {
+        profilebox.classList.add('d-none');
+        nav.classList.remove('d-none');
+        menu.classList.remove('d-none');
+    })
+});
+
+
+var socialmediabutton = document.querySelector('.profile-edit-links');
+socialmediabutton.addEventListener('click', () => {
+    links.classList.add('d-none');
+
+    profileSmActive.classList.remove('d-none');
+
+    var profileSmBack = document.querySelector('.profile-sm-back');
+    profileSmBack.addEventListener('click', () => {
         profileSmActive.classList.add('d-none');
-        profileEditAcive.classList.add('d-none');
+        links.classList.remove('d-none');;
+    })
+});
+
+var editprofilebutton = document.querySelector('.profile-edit-profile');
+editprofilebutton.addEventListener('click', () => {
+    links.classList.add('d-none');
+
+    profileEditAcive.classList.remove('d-none');
+
+    var profilEditBack = document.querySelector('.profile-edit-back');
+    profilEditBack.addEventListener('click', () => {
         links.classList.remove('d-none');
+        profileEditAcive.classList.add('d-none');
+    })
+})
+
+var uploadbutton = document.querySelector('.profile-file--input');
+uploadbutton.addEventListener('click', () => {
+    profileFileuploadActive.classList.remove('d-none');
+
+    var backUploadbutton = profileFileuploadActive.querySelector('.uploadbackbutton');
+    backUploadbutton.addEventListener('click', () => {
         profileFileuploadActive.classList.add('d-none');
-
-        profilearrow.addEventListener('click', () => {
-            profilebox.classList.add('d-none');
-            nav.classList.remove('d-none');
-            menu.classList.remove('d-none');
-        })
-    });
-
-
-    var socialmediabutton = document.querySelector('.profile-edit-links');
-    socialmediabutton.addEventListener('click', () => {
-        links.classList.add('d-none');
-
-        profileSmActive.classList.remove('d-none');
-
-        var profileSmBack = document.querySelector('.profile-sm-back');
-        profileSmBack.addEventListener('click', () => {
-            profileSmActive.classList.add('d-none');
-            links.classList.remove('d-none');;
-        })
-    });
-
-    var editprofilebutton = document.querySelector('.profile-edit-profile');
-    editprofilebutton.addEventListener('click', () => {
-        links.classList.add('d-none');
-
-        profileEditAcive.classList.remove('d-none');
-
-        var profilEditBack = document.querySelector('.profile-edit-back');
-        profilEditBack.addEventListener('click', () => {
-            links.classList.remove('d-none');
-            profileEditAcive.classList.add('d-none');
-        })
     })
+})
 
-    var uploadbutton = document.querySelector('.profile-file--input');
-    uploadbutton.addEventListener('click', () => {
-        profileFileuploadActive.classList.remove('d-none');
+var explorebutton = document.querySelector('.profile-edit-posts');
+var preview = document.querySelector('.uploaded-img');
+explorebutton.addEventListener('click', () => {
+    profileExploreActive.classList.remove('d-none');
 
-        var backUploadbutton = profileFileuploadActive.querySelector('.uploadbackbutton');
-        backUploadbutton.addEventListener('click', () => {
-            profileFileuploadActive.classList.add('d-none');
-        })
-    })
+    profileInfoNav.classList.add('d-none');
+    profileInfoNav.classList.remove('d-flex');
+
+    profileimage.classList.add('d-none');
+    links.classList.add('d-none');
+
+    profileDetails.classList.add('d-none');
+    var menu = document.querySelector('.menu');
+    menu.classList.remove('d-none');
+
+    preview.classList.add('d-none');
+    preview.classList.remove('d-block');
+})
+
+var exploreBackButton = document.querySelector('.explore-back');
+exploreBackButton.addEventListener('click', () => {
+    profileExploreActive.classList.add('d-none');
+
+    profileInfoNav.classList.remove('d-none');
+    profileInfoNav.classList.add('d-flex');
+
+    profileimage.classList.remove('d-none');
+    links.classList.remove('d-none');
+
+    profileDetails.classList.remove('d-none');
+    var menu = document.querySelector('.menu');
+    menu.classList.add('d-none');
+})
+
+
+function showPreview(event) {
+    if (event.target.files.length > 0) {
+        var src = URL.createObjectURL(event.target.files[0]);
+        preview.src = src;
+        preview.classList.remove('d-none');
+        preview.classList.add('d-block');
+    }
+}

@@ -21,6 +21,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
     <nav>
@@ -54,6 +55,10 @@
             <div class="profile-edit-heart">
                 <img src="/UserInterface/heart.png">
                 <p>Notification</p>
+            </div>
+            <div class="profile-edit-posts" onclick="reload()">
+                <img src="/UserInterface/hashtag.png">
+                <p>Explore</p>
             </div>
             <div class="profile-edit-links">
                 <img src="/UserInterface/link.png" alt="">
@@ -118,7 +123,7 @@
             <div class="profile-file">
                 <form action="ProfileInfo/Upload/uploadfile.php" method="post" enctype="multipart/form-data">
                     <div class="profile-file--input">
-                        <input type="file" name="file" id="file" value="" accept="image/*>
+                        <input type="file" name="file" id="file" value="" accept="image/*">
                         <label for="file">Upload image</label>
                     </div>
                     <div class="profile-file--active d-none">
@@ -140,11 +145,41 @@
             </div>
             <p class="profile-edit-back">Back</p>
         </div>
+        <div class="profile-explore d-none">
+            <div class="profile-explore--nav">
+                <i class="fa-solid fa-chevron-left fa-lg explore-back"></i>
+                <h4>Explore</h4>
+            </div>
+            <div class="profile-explore--container">
+                <div class="addpost">
+                    <form action="ProfileInfo/Addpost/addpost.php" method="post" enctype="multipart/form-data" id="form-post">
+                        <div class="d-flex align-middle inputs">
+                            <img src="/ProfileInfo/Upload/Images/<?php echo $_SESSION['profileimage'] ?>" alt="" class="post-profile-img">
+                            <div>
+                                <input type="text" name="posttags" id="" class="add-tags" placeholder="Add tags e.g: #tags">
+                                <textarea name="posttext" id="" class="add-text" maxlength="1024" placeholder="What's on your mind?"></textarea>
+                            </div>
+                        </div>
+                        <img class="uploaded-img">
+                        <div class="d-flex align-middle justify-content-between">
+                            <div class="add-img">
+                                <input type="file" name="addimg" id="add-img-input" class="add-img-input" accept="image/*" onchange="showPreview(event)" >
+                                <label for="addimg"><i class="fa-regular fa-image fa-lg"></i></label>
+                            </div>
+                            <input type="submit" value="Done" name="addpost" class="addpost-submit" onclick="reloadwhenadd()">
+                        </div>
+                    </form>
+                </div>
+                <div class="posts">
+                    
+                </div>
+            </div>
+        </div>
     </div>
     <div class="menu">
         <a href="#" class="chatsbutton menu-button--active"><i class="fa-solid fa-message"></i><p>Chats</p></a>
         <a href="#" class="usersbutton"><i class="fa-solid fa-users"></i><p>Users</p></a>
-        <a href="#" class="stockbutton"><i class="fa-solid fa-arrow-trend-up"></i><p>Stock</p></a>  
+        <a href="#" class="stockbutton"><i class="fa-solid fa-arrow-trend-up"></i><p>Stock</p></a> 
     </div>
     <div class="maincolumn">
         <div class="maincolumn-chats">
@@ -216,4 +251,6 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src='main.js'></script>
+<script src='ProfileInfo/Addpost/addpost.js'></script>
+<script src="ProfileInfo/Addpost/reload.js"></script>
 </html>

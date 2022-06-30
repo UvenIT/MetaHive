@@ -272,4 +272,180 @@
 .profile-info .profile-edit--active .profile-edit-back {
   color: #404041;
 }
+
+.profile-info .profile-explore--nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-info .profile-explore--nav h4 {
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.profile-info .profile-explore--container {
+  padding: 1rem 0 0.5rem;
+  overflow: scroll;
+  height: 80vh;
+}
+
+.profile-info .profile-explore--container .addpost {
+  border-radius: 1rem;
+  border: 1px solid #353536;
+  text-align: start;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-info .profile-explore--container .addpost .post-profile-img {
+  height: 42px;
+  margin-right: 1rem;
+}
+
+.profile-info .profile-explore--container .addpost .inputs {
+  width: 100%;
+}
+
+.profile-info .profile-explore--container .addpost .inputs .add-text {
+  word-wrap: break-word;
+  word-break: break-all;
+  resize: none;
+}
+
+.profile-info .profile-explore--container .addpost .inputs .add-tags, .profile-info .profile-explore--container .addpost .inputs .add-text {
+  color: #FFFFFF;
+  width: calc(100%);
+  background: #1f2122;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.profile-info .profile-explore--container .addpost .uploaded-img {
+  display: none;
+  height: 60px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+  border-radius: 0.5rem;
+}
+
+.profile-info .profile-explore--container .addpost .add-img {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+.profile-info .profile-explore--container .addpost .add-img-input {
+  position: absolute;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  opacity: 0;
+  cursor: pointer;
+  bottom: 0;
+}
+
+.profile-info .profile-explore--container .addpost .add-img label {
+  margin: 0;
+}
+
+.profile-info .profile-explore--container .addpost input[type="submit"] {
+  border: none;
+  background: dodgerblue;
+  color: #FFFFFF;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.profile-info .profile-explore--container .postbox {
+  border: 1px solid #353536;
+  border-radius: 1rem;
+  text-align: start !important;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.profile-info .profile-explore--container .postbox-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-info .profile-explore--container .postbox-nav img {
+  height: 42px;
+  margin-right: 1rem;
+}
+
+.profile-info .profile-explore--container .postbox-nav p {
+  margin: 0;
+  font-size: 0.825rem;
+  color: #404041;
+}
+
+.profile-info .profile-explore--container .postbox-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+  margin-bottom: 0.25rem;
+}
+
+.profile-info .profile-explore--container .postbox-interactions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile-info .profile-explore--container .postbox-interactions-like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+  width: 32%;
+  border-radius: 0.5rem;
+}
+
+.profile-info .profile-explore--container .postbox-interactions-like p {
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.profile-info .profile-explore--container .postbox-interactions-like:hover {
+  background: #151718;
+}
+
+.profile-info .profile-explore--container .postbox-nav, .profile-info .profile-explore--container .postbox-text, .profile-info .profile-explore--container .postbox-tags {
+  padding: 0 1rem;
+}
+
+.profile-info .profile-explore--container::-webkit-scrollbar {
+  display: none;
+}
 /*# sourceMappingURL=Mobile.css.map */

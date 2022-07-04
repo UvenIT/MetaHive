@@ -219,7 +219,7 @@
                 <h5>Richard Hamilton</h5>
             </div>
         </div>
-        <div class="maincolumn-stock d-none">
+        <div class="maincolumn-stock d-none flex-column justify-content-between">
             <div class="maincolumn-stock--input">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="" crypto-search>

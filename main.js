@@ -27,6 +27,7 @@ buttons.forEach(element => {
             navtext.innerHTML = "Chats";
             users.classList.add('d-none');
             stock.classList.add('d-none');
+            stock.classList.remove('d-flex');
             chats.classList.remove('d-none');
             CryptoContainer.classList.remove('d-none');
             Page2.classList.add('d-none');
@@ -40,6 +41,7 @@ buttons.forEach(element => {
             navtext.innerHTML = "Users";
             chats.classList.add('d-none');
             stock.classList.add('d-none');
+            stock.classList.remove('d-flex');
             users.classList.remove('d-none');
             CryptoContainer.classList.remove('d-none');
             Page2.classList.add('d-none');
@@ -54,6 +56,7 @@ buttons.forEach(element => {
             chats.classList.add('d-none');
             users.classList.add('d-none');
             stock.classList.remove('d-none');
+            stock.classList.add('d-flex');
             profilebox.classList.add('d-none');
             nav.classList.remove('d-none');
         }
@@ -72,11 +75,16 @@ SearchInput.addEventListener('input', e => {
         crypto.element.classList.toggle('d-none', !isVisible);
         var Page2 = document.querySelector('[crypto-cards-page2]');
         Page2.classList.remove('d-none');
+        stock.classList.remove('flex-column', 'd-flex', 'justify-content-between');
+        stock.classList.add('d-block');
         var Pagination = document.querySelector('.maincolumn-stock-pagination');
         Pagination.classList.add('d-none');
+
         if (e.target.value === '') {
             Pagination.classList.remove('d-none');
             Page2.classList.add('d-none');
+            stock.classList.add('flex-column', 'd-flex', 'justify-content-between');
+            stock.classList.remove('d-block');
         }
     })
 })

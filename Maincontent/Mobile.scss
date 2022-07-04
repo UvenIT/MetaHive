@@ -1,6 +1,6 @@
 @import "../Palette/palette";
 .maincolumn{
-    height: 85vh;
+    height: 82vh;
     background: $maincolor;
     &-chats{
         padding: 1rem 1.5rem;
@@ -90,6 +90,10 @@
     }
     &-stock{
         padding: 1rem 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         &--input{
             background: $secondarycolor;
             border-radius: 0.75rem;
@@ -109,7 +113,7 @@
         }
         .crypto-pages{
             height: fit-content;
-            overflow: hidden;
+            max-height: 73vh;
             overflow-y: scroll;
         }
         &--box{
